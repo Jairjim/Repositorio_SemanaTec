@@ -9,9 +9,8 @@ Exercises
 5. Add width parameter.
 
 """
-
-from turtle import *
-
+from math import *
+from turtle import * 
 from freegames import vector
 
 
@@ -39,17 +38,49 @@ def square(start, end):
 
 def circle(start, end):
     "Draw circle from start to end."
-    pass  # TODO
-
+    up()
+    goto(start.x, start.y)
+    down()
+    for count in range(36):
+        forward((end.x - start.x)/9.5)
+        left(10)
 
 def rectangle(start, end):
     "Draw rectangle from start to end."
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    for count in range(2):
+        forward(end.x - start.x)
+        left(90)
+        forward(end.y - start.y)
+        left(90)
 
 
 def triangle(start, end):
     "Draw triangle from start to end."
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    for count in range(3):
+        forward(end.x - start.x)
+        left(120)
+        
+def hexagon(start, end):
+    "Draw square from start to end."
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    for count in range(6):
+        forward(end.x - start.x)
+        left(90)
+        right(120)
+        left(90)
+        right(120)
+
+    end_fill()
 
 
 def tap(x, y):
@@ -80,9 +111,11 @@ onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
+onkey(lambda: color('cyan'), 'C')
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
+onkey(lambda: store('shape', hexagon), 'h')
 done()
