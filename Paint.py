@@ -1,16 +1,5 @@
-"""Paint, for drawing shapes.
+from turtle import *
 
-Exercises
-
-1. Add a color.
-2. Complete circle.
-3. Complete rectangle.
-4. Complete triangle.
-5. Add width parameter.
-
-"""
-from math import *
-from turtle import * 
 from freegames import vector
 
 
@@ -38,23 +27,32 @@ def square(start, end):
 
 def circle(start, end):
     "Draw circle from start to end."
+    
     up()
     goto(start.x, start.y)
     down()
+    begin_fill()
+
     for count in range(36):
         forward((end.x - start.x)/9.5)
         left(10)
+  
+    end_fill()
+
+
 
 def rectangle(start, end):
-    "Draw rectangle from start to end."
+    "Draw square from start to end."
     up()
     goto(start.x, start.y)
-    down()
-    for count in range(2):
+    begin_fill()
+
+    for count in range(4):
         forward(end.x - start.x)
         left(90)
-        forward(end.y - start.y)
-        left(90)
+        right(180)
+        
+    end_fill()
 
 
 def triangle(start, end):
@@ -62,10 +60,15 @@ def triangle(start, end):
     up()
     goto(start.x, start.y)
     down()
-    for count in range(3):
+    begin_fill()
+
+    for count in range(1):
         forward(end.x - start.x)
-        left(120)
-        
+        right(120)
+        forward(end.x - start.x)
+        right(120)     
+    end_fill()
+
 def hexagon(start, end):
     "Draw square from start to end."
     up()
@@ -111,7 +114,8 @@ onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
-onkey(lambda: color('cyan'), 'C')
+onkey(lambda: color('yellow'), 'Y')
+
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
