@@ -1,2 +1,2 @@
-# Laboratorio_A01632853
-Laboratorio de Github - Jair Josué Jimarez García
+# Snake_Equipo6
+VideoJuego Snake
